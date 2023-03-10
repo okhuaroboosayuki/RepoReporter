@@ -1,4 +1,100 @@
-body{
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Noto+Sans&family=Pacifico&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-shade: #242830;
+  --light-shade: #f6f5f4;
+  --btn-color: #659ad6;
+  --btn-hover: #255ad3;
+  --text-font: 'Noto Sans', sans-serif;
+  --title-font: 'Courier Prime', monospace;
+  --logo-font: 'Pacifico', cursive;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--text-font);
+  background-color: var(--dark-shade);
+  color: var(--light-shade);
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(../images/repo_Image.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(36, 40, 48, 0.8);
+  border-radius: 10px;
+  padding: 5rem;
+  box-shadow: 20px 20px 60px var(--btn-hover), -20px -20px 60px var(--btn-color);
+}
+
+.hero_header {
+  font-family: var(--title-font);
+}
+
+.hero_header span {
+  font-family: var(--logo-font);
+  color: var(--btn-color);
+}
+
+.hero_text {
+  max-width: 600px;
+  text-align: center;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.call_to_action_btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  background-color: var(--dark-shade);
+  color: var(--btn-color);
+  outline: none;
+  border: 1px solid var(--btn-hover);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: 1s ease-in-out;
+  transform: perspective(500px) rotateY(45deg);
+  animation: buttonAnimation 1s both infinite;
+}
+
+.call_to_action_btn:hover {
+  animation: buttonHoverAnimation 1s both infinite;
+  background-color: var(--btn-hover);
+  color: var(--dark-shade);
+  
+}
+
+@keyframes buttonHoverAnimation {
+  0% {
+    transform: perspective(500px) rotateY(45deg);
+  }
+
+  80% {
+    transform: perspective(300px) rotateY(0deg);
+  }
+
+  100% {
+    transform: perspective(-500px) rotateY(45deg);
+  }
 }
