@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '@/views/HomePage.vue'
+
+const HomePage = () => import(/* webpackChunkName: "HomePage" */ '@/views/HomePage.vue')
+const Repositories = () => import(/* webpackChunkName: "Repositories" */ '@/views/RepoView.vue')
+const SingleRepo = () => import(/* webpackChunkName: "SingleRepo" */ '@/views/SingleRepo.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,9 +13,16 @@ const router = createRouter({
       component: HomePage
     },
     {
-      path: '/repositories',
-      name: 'Repositories',
-      component: () => import(/* webpackChunkName: "Repositories" */ '@/views/RepoView.vue')
+      path: '/repos',
+      name: 'Repos',
+      component: Repositories,
+      children: [
+        {
+          path: '/repos/:repo',
+          name: 'Repo',
+          component: SingleRepo
+        }
+      ]
     }
   ]
 })
