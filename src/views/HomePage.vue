@@ -9,7 +9,7 @@
         and let RepoReporter do the heavy lifting of keeping you up to date on all my
         repositories' shenanigans.
       </p>
-      <router-link to="/repositories">
+      <router-link to="/repos">
         <button class="call_to_action_btn">Check Out My Repos</button>
       </router-link>
     </div>
