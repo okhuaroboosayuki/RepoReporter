@@ -5,7 +5,7 @@ const Repositories = () => import(/* webpackChunkName: "Repositories" */ '@/view
 const SingleRepo = () => import(/* webpackChunkName: "SingleRepo" */ '@/views/SingleRepo.vue')
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
