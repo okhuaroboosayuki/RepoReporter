@@ -8,17 +8,17 @@ export default function useRepos() {
         totalRepos: 0,
     })
 
+
     const fetchRepos = async () => {
-        const username = "okhuaroboosayuki";
+        const username = import.meta.env.VITE_GITHUB_USERNAME;
         const url = `https://api.github.com/users/${username}/repos?page=${repos.currentPage}&per_page=${repos.pageSize}`;
-        const token = "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";
+        const token = import.meta.env.VITE_GITHUB_TOKEN;
 
         const response = await fetch(url, {
             headers: {
                 'Authorization': `token ${token}`
             }
         });
-
         const data = await response.json();
 
         repos.repositories = data;
@@ -60,3 +60,4 @@ export default function useRepos() {
         pageButtons,
     }
 }
+
