@@ -4,8 +4,8 @@ export default function useRepos() {
     const repos = reactive({
         repositories: [],
         currentPage: 1,
-        pageSize: 4,
-        totalRepos: 0,
+        pageSize: 3,
+        totalRepos: Number,
     })
 
 
@@ -22,14 +22,8 @@ export default function useRepos() {
         const data = await response.json();
 
         repos.repositories = data;
-        // repos.totalRepos = response.headers.get('Link').split(',').find(link => link.includes('rel="last"')).split('&')[0].split('=')[1]
-        repos.totalRepos = response.headers.get('link').match(/page=\d+>; rel="last"/)[0].match(/\d+/)[0];
-
-        // repos.totalRepos = response.headers.get('link');
-
-        // console.log(repos.totalRepos);
-
-        // console.log(repos.repositories);
+        repos.totalRepos = response.headers.get('Link').split(',').find(link => link.includes('rel="last"')).split('&')[0].split('=')[1]
+        // repos.totalRepos = response.headers.get('link').match(/page=\d+>; rel="last"/)[0].match(/\d+/)[0];
     };
 
     const setPage = (page) => {
