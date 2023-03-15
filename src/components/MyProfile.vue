@@ -8,16 +8,15 @@
       <section class="profile_desc">
         <div class="profile_bio">
           <h2 class="profile_name">My name is {{ profile.name }}</h2>
-          <p class="title">
-            I am a {{ profile.bio }}, I bring a unique blend of technical skills and
-            creativity to the table. I specialize in crafting beautiful and responsive
-            user interfaces that not only look great but also provide a seamless user
+          <p class="desc">
+            {{ profile.bio }} I specialize in crafting beautiful and responsive user
+            interfaces that not only look great but also provide a seamless user
             experience. I take a structured approach to problem-solving, breaking down
             complex issues into smaller, more manageable parts.
           </p>
         </div>
 
-        <div class="profile_location">resides in: {{ profile.userLocation }}</div>
+        <!-- <div class="profile_location">resides in: {{ profile.userLocation }}</div> -->
 
         <div class="profile_stats">
           <div class="follows">
@@ -29,7 +28,9 @@
             </div>
           </div>
 
-          <div class="repo_nums">Repositories: {{ profile.publicRepos }}</div>
+          <div class="repo_nums">
+            Repositories:<span>{{ profile.publicRepos }}</span>
+          </div>
         </div>
       </section>
     </div>
@@ -78,21 +79,65 @@ export default {
   box-shadow: 5px 5px 15px var(--btn-color), -5px -2px 10px var(--btn-color);
 }
 
+.profile_desc {
+  text-transform: capitalize;
+}
+
 .profile_desc,
 .repo_nums {
   text-align: center;
 }
 
-.title {
+.profile_name,
+.profile_stats {
+  font-family: var(--title-font);
+}
+
+.desc {
   max-width: 30rem;
 }
 
-.follows,
 .profile_stats {
+  border: 0.5px solid var(--light-shade);
+  border-radius: 10px;
+  padding: 7px;
+}
+
+.follows,
+.profile_stats,
+.repo_nums {
   display: flex;
   gap: 20px;
   align-items: center;
   justify-content: center;
-  margin-top: 8px;
+  margin: 8px 5px;
+}
+
+.follows {
+  padding: 5px;
+}
+
+.follows,
+.repo_nums {
+  border: 0.5px solid var(--btn-hover);
+  border-radius: 5px;
+  background-color: var(--light-shade);
+  color: var(--dark-shade);
+}
+
+.followers {
+  border-right: 0.5px double;
+  padding-right: 15px;
+}
+
+.repo_nums {
+  padding: 7px;
+}
+
+@media all and (max-width: 1025px) {
+  .profile_image {
+    border-right: 0;
+    padding-right: 0;
+  }
 }
 </style>
