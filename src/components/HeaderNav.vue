@@ -60,6 +60,11 @@ a {
   padding: 0.5rem 0.4rem;
   background: linear-gradient(145deg, rgba(36, 40, 48, 0.8), rgba(20, 20, 20, 0.8));
   box-shadow: 5px 5px 15px var(--btn-color), -15px -15px 25px var(--btn-color);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  width: 100%;
 }
 
 .logo a {
@@ -143,7 +148,7 @@ div ul li a:hover {
 }
 
 @media (max-width: 600px) {
-  .logo{
+  .logo {
     position: relative;
     right: 60px;
   }
@@ -155,7 +160,7 @@ div ul li a:hover {
     display: flex;
   }
 
-  .menu_icon{
+  .menu_icon {
     position: relative;
     left: 70px;
   }
@@ -193,7 +198,7 @@ div ul li a:hover {
 }
 
 @media (max-width: 450px) {
-  .menu_icon{
+  .menu_icon {
     position: relative;
     left: 30px;
   }
