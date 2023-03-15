@@ -7,7 +7,6 @@ export default function useProfile() {
             avatarUrl: '',
             followers: '',
             following: '',
-            userLocation: '',
             publicRepos: '',
         })
 
@@ -29,7 +28,6 @@ export default function useProfile() {
             profile.avatarUrl = data.avatar_url;
             profile.followers = data.followers;
             profile.following = data.following;
-            profile.userLocation = data.location;
             profile.publicRepos = data.public_repos;
 
         }
