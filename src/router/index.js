@@ -16,13 +16,11 @@ const router = createRouter({
       path: '/repos',
       name: 'Repos',
       component: Repositories,
-      children: [
-        {
-          path: '/repos/:repo',
-          name: 'Repo',
-          component: SingleRepo
-        }
-      ]
+    },
+    {
+      path: '/repos/:repo',
+      name: 'Repo',
+      component: SingleRepo
     }
   ]
 })
