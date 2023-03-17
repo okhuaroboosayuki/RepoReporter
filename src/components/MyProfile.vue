@@ -16,8 +16,6 @@
           </p>
         </div>
 
-        <!-- <div class="profile_location">resides in: {{ profile.userLocation }}</div> -->
-
         <div class="profile_stats">
           <div class="follows">
             <div class="followers">
@@ -138,6 +136,58 @@ export default {
   .profile_image {
     border-right: 0;
     padding-right: 0;
+  }
+
+  .profile_bio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .desc {
+    max-width: 25rem;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .profile_card {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .profile_image {
+    padding-right: 0;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .profile_image img {
+    max-width: 22rem;
+    max-height: 19rem;
+  }
+
+  .profile_desc {
+    padding: 0;
+    margin-top: 1rem;
+  }
+
+  .profile_stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .follows {
+    flex-direction: row;
+  }
+
+  .repo_nums {
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width: 680px) {
+  .desc {
+    margin-top: 0;
   }
 }
 </style>
