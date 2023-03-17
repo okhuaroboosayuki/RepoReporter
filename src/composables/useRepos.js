@@ -23,7 +23,6 @@ export default function useRepos() {
 
         repos.repositories = data;
         repos.totalRepos = response.headers.get('Link').split(',').find(link => link.includes('rel="last"')).split('&')[0].split('=')[1]
-        // repos.totalRepos = response.headers.get('link').match(/page=\d+>; rel="last"/)[0].match(/\d+/)[0];
     };
 
     const setPage = (page) => {
