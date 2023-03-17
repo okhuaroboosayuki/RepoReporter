@@ -1,7 +1,7 @@
 <template>
   <nav class="nav_wrapper">
     <div class="logo">
-      <router-link to="/">RepoReporter</router-link>
+      <router-link to="/repos">RepoReporter</router-link>
     </div>
     <div class="navigation">
       <ul>
