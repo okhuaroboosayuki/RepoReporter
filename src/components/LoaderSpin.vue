@@ -1,5 +1,5 @@
 <template>
-  <flower-spinner :animation-duration="2500" :size="70" color="#ff1d5e" />
+  <flower-spinner :animation-duration="2500" :size="70" color="#255ad3" />
 </template>
 
 <script>
