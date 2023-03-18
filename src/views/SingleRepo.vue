@@ -12,6 +12,10 @@
     </div>
   </div>
   <RouterView />
+
+  <div class="repo_link">
+    <router-link to="/repos">Go back</router-link>
+  </div>
 </template>
 
 <script>
@@ -50,14 +54,16 @@ export default {
   text-transform: uppercase;
 }
 
-.single_repo_links {
+.single_repo_links,
+.repo_link {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
   padding: 1rem;
 }
 
-.single_repo_links a {
+.single_repo_links a,
+.repo_link a {
   background-color: var(--dark-shade);
   color: var(--light-shade);
   padding: 5px 10px;
@@ -69,7 +75,8 @@ export default {
   text-transform: capitalize;
 }
 
-.single_repo_links a:hover {
+.single_repo_links a:hover,
+.repo_link a:hover {
   background-color: var(--light-shade);
   color: var(--dark-shade);
 }
@@ -97,6 +104,10 @@ export default {
 .commit,
 .date {
   color: var(--btn-hover);
+}
+
+.router-link-active {
+  color: var(--btn-hover) !important;
 }
 
 @media all and (max-width: 680px) {
