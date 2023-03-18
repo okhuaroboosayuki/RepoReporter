@@ -334,7 +334,9 @@ button a:hover {
 @media all and (max-width: 450px) {
   .normal_btn,
   .disabled,
-  .active_btn {
+  .active_btn,
+  .first_btn,
+  .prev_btn {
     margin-top: 0.5rem;
   }
 }
