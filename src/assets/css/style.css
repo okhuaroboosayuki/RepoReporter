@@ -55,7 +55,6 @@ li{
 
 .hero_header {
   font-family: var(--title-font);
-  width: 100%;
   text-align: center;
 }
 
@@ -94,6 +93,18 @@ li{
   color: var(--dark-shade);
 }
 
+span.cursor {
+  display: inline-block;
+  margin-left: 3px;
+  width: 4px;
+  background-color: #fff;
+  animation: cursorBlink 1s infinite;
+}
+
+span.cursor.typing {
+  animation: none;
+}
+
 @keyframes buttonHoverAnimation {
   0% {
     transform: perspective(500px) rotateY(45deg);
@@ -108,9 +119,37 @@ li{
   }
 }
 
+@keyframes cursorBlink {
+  49% {
+    background-color: #fff;
+  }
+
+  50% {
+    background-color: transparent;
+  }
+
+  99% {
+    background-color: transparent;
+  }
+}
+
 
 @media all and (max-width: 680px) {
   .hero_wrapper {
     padding: 2rem;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .hero_wrapper {
+    padding: 1rem;
+  }
+
+  .hero_header{
+    font-size: 1.5rem;
+  }
+
+  .hero_text, .call_to_action_btn {
+    font-size: 1rem;
   }
 }
