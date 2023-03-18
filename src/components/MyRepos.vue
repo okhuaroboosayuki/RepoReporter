@@ -330,4 +330,12 @@ button a:hover {
     margin-top: 0.5rem;
   }
 }
+
+@media all and (max-width: 450px) {
+  .normal_btn,
+  .disabled,
+  .active_btn {
+    margin-top: 0.5rem;
+  }
+}
 </style>
