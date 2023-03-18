@@ -1,19 +1,27 @@
 <template>
   <HeaderNav />
   <div class="repo_wrapper">
-    <div>
-      <MyProfile />
-    </div>
-    <div>
-      <MyRepos />
-    </div>
+    <Suspense>
+      <template #default>
+        <div>
+          <MyProfile />
+          <MyRepos />
+        </div>
+      </template>
+      <template #fallback>
+        <LoaderSpinVue />
+      </template>
+    </Suspense>
   </div>
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import HeaderNav from "../components/HeaderNav.vue";
-import MyRepos from "../components/MyRepos.vue";
-import MyProfile from "../components/MyProfile.vue";
+import LoaderSpinVue from "../components/LoaderSpin.vue";
+
+const MyRepos = defineAsyncComponent(() => import("../components/MyRepos.vue"));
+const MyProfile = defineAsyncComponent(() => import("../components/MyProfile.vue"));
 
 export default {
   name: "HomePage",
@@ -21,6 +29,7 @@ export default {
     HeaderNav,
     MyRepos,
     MyProfile,
+    LoaderSpinVue,
   },
 };
 </script>
@@ -30,5 +39,10 @@ export default {
   display: flex;
   flex-direction: column;
   margin: 0 1rem;
+}
+
+.repo_wrapper .flower-spinner {
+  align-self: center;
+  margin: 18rem 0;
 }
 </style>
