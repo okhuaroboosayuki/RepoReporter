@@ -143,6 +143,9 @@ export default {
   align-self: flex-start;
   right: 20rem;
 }
+.repo_RepoReporter {
+  max-width: 30rem;
+}
 
 @keyframes glowing {
   0% {
