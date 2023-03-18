@@ -1,14 +1,10 @@
 <template>
   <nav class="nav_wrapper">
     <div class="logo">
-      <router-link to="/repos">RepoReporter</router-link>
+      <router-link to="/">RepoReporter</router-link>
     </div>
     <div class="navigation">
       <ul>
-        <li>
-          <router-link to="/">Home</router-link>
-        </li>
-
         <li>
           <router-link to="/repos">Repositories</router-link>
         </li>
@@ -24,9 +20,6 @@
         <div class="menu" v-if="showMenu">
           <div class="close_button" @click="showMenu = !showMenu"></div>
           <ul>
-            <li>
-              <router-link to="/">Home</router-link>
-            </li>
             <li>
               <router-link to="/repos">Repositories</router-link>
             </li>
