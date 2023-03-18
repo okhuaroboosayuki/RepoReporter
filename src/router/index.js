@@ -19,7 +19,6 @@ const router = createRouter({
       component: HomePage,
       meta: {
         title: 'Home',
-        description: 'RepoReporter is a free online tool that helps me track my GitHub repository metrics, including issues, pull requests, and commits for all my GitHub repositories'
       }
     },
     {
@@ -75,7 +74,10 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       name: '404',
-      component: NotFound
+      component: NotFound,
+      meta: {
+        title: '404'
+      }
     },
     {
       path: '/:catchAll(.*)*',
@@ -83,6 +85,7 @@ const router = createRouter({
     }
   ]
 })
+
 
 router.beforeEach((to, from, next) => {
   document.title = `${to.meta.title}`;
