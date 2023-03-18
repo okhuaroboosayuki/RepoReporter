@@ -15,12 +15,14 @@
 
   <div class="repo_link">
     <router-link to="/repos">Go back</router-link>
+    <a :href="repoUrl" target="_blank">go to repository</a>
   </div>
 </template>
 
 <script>
 import HeaderNav from "../components/HeaderNav.vue";
 import useRepos from "../composables/useRepos";
+// import useRepoDetails from "../composables/useRepoDetails";
 import { useRouter } from "vue-router";
 
 export default {
@@ -29,13 +31,19 @@ export default {
   },
   setup() {
     const { repos } = useRepos();
+    // const { state } = useRepoDetails();
     const router = useRouter();
 
     const repositoryName = router.currentRoute.value.params.repo;
 
+    const userName = import.meta.env.VITE_GITHUB_USERNAME;
+    const repoUrl = `https://github.com/${userName}/${repositoryName}`;
+
     return {
       repos,
       repositoryName,
+      // state,
+      repoUrl,
     };
   },
 };
