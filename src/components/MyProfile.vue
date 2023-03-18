@@ -30,6 +30,12 @@
             Repositories:<span>{{ profile.publicRepos }}</span>
           </div>
         </div>
+
+        <div class="profile_link">
+          <a class="profile_anchor" :href="profile.profileUrl" target="_blank">
+            view my gitHub profile
+          </a>
+        </div>
       </section>
     </div>
   </section>
@@ -87,7 +93,8 @@ export default {
 }
 
 .profile_name,
-.profile_stats {
+.profile_stats,
+.profile_link {
   font-family: var(--title-font);
 }
 
@@ -99,6 +106,27 @@ export default {
   border: 0.5px solid var(--light-shade);
   border-radius: 10px;
   padding: 7px;
+}
+
+.profile_link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  padding: 0;
+}
+
+.profile_link a {
+  color: var(--light-shade);
+  text-decoration: none;
+  text-align: center;
+  border: 0.5px solid;
+  padding: 10px 20px;
+}
+
+.profile_link a:hover {
+  color: var(--btn-color);
+  border: 0.5px solid var(--btn-color);
 }
 
 .follows,
