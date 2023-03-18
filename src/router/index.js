@@ -11,51 +11,82 @@ const License = () => import(/* webpackChunkName: "License" */ '@/views/RepoPage
 const NotFound = () => import(/* webpackChunkName: "NotFound" */ '@/views/NotFound.vue')
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
       name: 'Home',
-      component: HomePage
+      component: HomePage,
+      meta: {
+        title: 'Home',
+        description: 'RepoReporter is a free online tool that helps me track my GitHub repository metrics, including issues, pull requests, and commits for all my GitHub repositories'
+      }
     },
     {
       path: '/repos',
       name: 'Repos',
-      component: Repositories
+      component: Repositories,
+      meta: {
+        title: 'Repositories'
+      }
     },
     {
       path: '/repos/:repo',
       name: 'Repo',
       component: SingleRepo,
+      meta: {
+        title: 'Single Repo'
+      },
       children: [
         {
           path: '/repos/:repo/commits',
           name: 'Commits',
-          component: Commits
+          component: Commits,
+          meta: {
+            title: 'Single Repo Commits'
+          }
         },
         {
           path: '/repos/:repo/languages',
           name: 'Language',
-          component: Languages
+          component: Languages,
+          meta: {
+            title: 'Single Repo Languages'
+          }
         },
         {
           path: '/repos/:repo/createdAt',
           name: 'Created At',
-          component: Created
+          component: Created,
+          meta: {
+            title: 'Single Repo Date Created'
+          }
         },
         {
           path: '/repos/:repo/license',
           name: 'License',
-          component: License
+          component: License,
+          meta: {
+            title: 'Single Repo License'
+          }
         }
       ]
     },
     {
       path: '/:pathMatch(.*)*',
-      name: 'NotFound',
+      name: '404',
       component: NotFound
+    },
+    {
+      path: '/:catchAll(.*)*',
+      redirect: { name: '404' }
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title}`;
+  next()
 })
 
 export default router
