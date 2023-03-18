@@ -22,7 +22,6 @@
 <script>
 import HeaderNav from "../components/HeaderNav.vue";
 import useRepos from "../composables/useRepos";
-// import useRepoDetails from "../composables/useRepoDetails";
 import { useRouter } from "vue-router";
 
 export default {
@@ -31,7 +30,6 @@ export default {
   },
   setup() {
     const { repos } = useRepos();
-    // const { state } = useRepoDetails();
     const router = useRouter();
 
     const repositoryName = router.currentRoute.value.params.repo;
@@ -42,7 +40,6 @@ export default {
     return {
       repos,
       repositoryName,
-      // state,
       repoUrl,
     };
   },
