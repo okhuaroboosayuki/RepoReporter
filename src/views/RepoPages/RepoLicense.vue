@@ -1,6 +1,6 @@
 <template>
   <div class="details_wrapper">
-    <p class="details">{{ state.license ? state.license : "No License" }}</p>
+    <p class="details">{{ state.license }}</p>
   </div>
 </template>
 
