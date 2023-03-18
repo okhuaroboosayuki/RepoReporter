@@ -1,5 +1,4 @@
 import { onMounted, reactive, watchEffect } from 'vue'
-// import useRepos from './useRepos'
 
 export default function useRepoDetails(repositoryName) {
 
@@ -75,9 +74,15 @@ export default function useRepoDetails(repositoryName) {
 
         // loop to get the created_at and license properties from the data object
         for (let i = 0; i < data.length; i++) {
-          if (data[i].name === repositoryName) {
+          if (data[i] && data[i].name === repositoryName) {
             state.createdAt = data[i].created_at
-            state.license = data[i].license.name
+
+            //  code to check if the repository has a license name and if it does, add it to the state.license property
+            if (data[i].license && data[i].license.name) {
+              state.license = data[i].license.name
+            } else  {
+              state.license = 'No license'
+            }
           }
 
         }
